@@ -8,11 +8,10 @@ const funcionariosDB = new PouchDB('http://localhost:5984/funcionarios');
 async function adicionarFuncionario(dadosFuncionario) {
     const funcionario = {
         _id: new Date().toISOString(),
-        tipo: 'funcionario',
         nome: dadosFuncionario.nome,
         cpf: dadosFuncionario.cpf,
         cargo: dadosFuncionario.cargo,
-        salarioBruto: dadosFuncionario.salarioBruto, 
+        salarioBase: dadosFuncionario.salarioBase,
         comissao: dadosFuncionario.comissao,
         horasExtras: {
             quantidade: dadosFuncionario.horasExtras.quantidade,
@@ -47,6 +46,7 @@ async function buscarFuncionarios() {
     }
 }
 
+//Função para buscar funcionario por ID 
 async function buscarFuncionarioPorId(idFuncionario) {
     try {
         const funcionario = await funcionariosDB.get(idFuncionario);
@@ -57,5 +57,5 @@ async function buscarFuncionarioPorId(idFuncionario) {
     }
 }
 
-module.exports = { adicionarFuncionario,buscarFuncionarios,buscarFuncionarioPorId  };
+module.exports = { adicionarFuncionario, buscarFuncionarios, buscarFuncionarioPorId };
 

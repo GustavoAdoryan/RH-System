@@ -1,4 +1,5 @@
 const { adicionarFuncionario } = require('../models/funcionarioModel');
+const { gerarHolerite } = require('../services/holeriteService');
 
 // Adicionando um novo funcionário
 async function criarFuncionario(req, res) {
@@ -39,5 +40,15 @@ async function obterFuncionarioPorId(req, res) {
     }
 }
 
-module.exports = { criarFuncionario, obterFuncionarios,obterFuncionarioPorId };
+async function obterHolerite(req, res) {
+    try {
+        const { id, mes, ano } = req.params;
+        const holerite = await gerarHolerite(id, mes, ano);
+        res.json(holerite);
+    } catch (erro) {
+        res.status(500).send({ erro: erro.message });
+    }
+}
+
+module.exports = { criarFuncionario, obterFuncionarios,obterFuncionarioPorId, obterHolerite };
 
