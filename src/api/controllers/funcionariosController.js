@@ -1,4 +1,4 @@
-const { adicionarFuncionario } = require('../models/funcionarioModel');
+const { adicionarFuncionario, buscarFuncionarios, buscarFuncionarioPorId, editarFuncionario } = require('../models/funcionarioModel');
 const { gerarHolerite } = require('../services/holeriteService');
 
 // Adicionando um novo funcionário
@@ -11,8 +11,6 @@ async function criarFuncionario(req, res) {
     }
 }
 
-const { buscarFuncionarios } = require('../models/funcionarioModel');
-
 // Controlador para buscar todos os funcionários
 async function obterFuncionarios(req, res) {
     try {
@@ -23,8 +21,7 @@ async function obterFuncionarios(req, res) {
     }
 }
 
-const { buscarFuncionarioPorId } = require('../models/funcionarioModel');
-
+// Controlador para buscar um funcionário por ID
 async function obterFuncionarioPorId(req, res) {
     const id = req.params.id; // O Express coloca os parâmetros da URL em req.params
 
@@ -40,6 +37,20 @@ async function obterFuncionarioPorId(req, res) {
     }
 }
 
+// Controlador para editar um funcionário
+async function editarFuncionarioController(req, res) {
+    const id = req.params.id; // ID do funcionário a ser editado
+    const dadosAtualizados = req.body; // Dados para atualizar
+
+    try {
+        const resultado = await editarFuncionario(id, dadosAtualizados);
+        res.status(200).send(resultado);
+    } catch (erro) {
+        res.status(500).send({ erro: erro.message });
+    }
+}
+
+// Controlador para obter holerite
 async function obterHolerite(req, res) {
     try {
         const { id, mes, ano } = req.params;
@@ -50,5 +61,4 @@ async function obterHolerite(req, res) {
     }
 }
 
-module.exports = { criarFuncionario, obterFuncionarios,obterFuncionarioPorId, obterHolerite };
-
+module.exports = { criarFuncionario, obterFuncionarios, obterFuncionarioPorId, editarFuncionarioController, obterHolerite };

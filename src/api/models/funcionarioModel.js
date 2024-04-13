@@ -4,7 +4,6 @@ PouchDB.plugin(require('pouchdb-find'));
 const funcionariosDB = new PouchDB('http://localhost:5984/funcionarios');
 
 
-// Função para adicionar um novo funcionário
 async function adicionarFuncionario(dadosFuncionario) {
     const funcionario = {
         _id: new Date().toISOString(),
@@ -20,12 +19,15 @@ async function adicionarFuncionario(dadosFuncionario) {
         adicionais: {
             noturno: dadosFuncionario.adicionais.noturno,
             insalubridade: dadosFuncionario.adicionais.insalubridade,
+            insalubridadeGrau: dadosFuncionario.adicionais.insalubridadeGrau, // Adicione esta linha
             periculosidade: dadosFuncionario.adicionais.periculosidade,
             tempoServico: dadosFuncionario.adicionais.tempoServico
         },
         salarioFamilia: dadosFuncionario.salarioFamilia,
         diariaViagem: dadosFuncionario.diariaViagem,
-        auxilioCrecheBaba: dadosFuncionario.auxilioCrecheBaba
+        auxilioCrecheBaba: dadosFuncionario.auxilioCrecheBaba,
+        email: dadosFuncionario.email,
+        senha: dadosFuncionario.senha
     };
 
     try {
@@ -35,6 +37,7 @@ async function adicionarFuncionario(dadosFuncionario) {
         throw new Error('Erro ao adicionar funcionário: ' + erro.message);
     }
 }
+
 
 // Função para buscar todos os funcionários
 async function buscarFuncionarios() {
@@ -46,7 +49,7 @@ async function buscarFuncionarios() {
     }
 }
 
-//Função para buscar funcionario por ID 
+//Função para buscar funcionario por ID
 async function buscarFuncionarioPorId(idFuncionario) {
     try {
         const funcionario = await funcionariosDB.get(idFuncionario);
@@ -57,5 +60,28 @@ async function buscarFuncionarioPorId(idFuncionario) {
     }
 }
 
-module.exports = { adicionarFuncionario, buscarFuncionarios, buscarFuncionarioPorId };
+async function editarFuncionario(idFuncionario, dadosAtualizados) {
+    try {
+        const funcionario = await buscarFuncionarioPorId(idFuncionario);
+        // Atualiza as informações com os novos dados
+        Object.keys(dadosAtualizados).forEach((chave) => {
+            funcionario[chave] = dadosAtualizados[chave];
+        });
+        const resultado = await funcionariosDB.put(funcionario);
+        return resultado;
+    } catch (erro) {
+        throw new Error('Erro ao editar funcionário: ' + erro.message);
+    }
+}
 
+async function verificarLogin(email, senha) {
+    try {
+        // Substitua pela lógica correta de encontrar o funcionário com o e-mail e verificar a senha
+        const resultado = await funcionariosDB.find({ selector: { email: email, senha: senha } });
+        return resultado.docs.length > 0 ? resultado.docs[0] : null;
+    } catch (erro) {
+        throw new Error('Erro ao verificar login: ' + erro.message);
+    }
+}
+
+module.exports = { adicionarFuncionario, buscarFuncionarios, buscarFuncionarioPorId, editarFuncionario, verificarLogin };

@@ -18,31 +18,26 @@ function calcularINSS(salarioBruto) {
 }
 
 function calcularIRRF(salarioBruto, inss) {
-    // Considerando o INSS já calculado para dedução
     const salarioAposInss = salarioBruto - inss;
-
     if (salarioAposInss <= 1903.98) {
         return 0;
     } else if (salarioAposInss <= 2826.65) {
-        return salarioAposInss * 0.075;
+        return salarioAposInss * 0.075 - 142.80;
     } else if (salarioAposInss <= 3751.05) {
-        return salarioAposInss * 0.15;
+        return salarioAposInss * 0.15 - 354.80;
     } else if (salarioAposInss <= 4664.68) {
-        return salarioAposInss * 0.225;
+        return salarioAposInss * 0.225 - 636.13;
     } else {
-        return salarioAposInss * 0.275;
+        return salarioAposInss * 0.275 - 869.36;
     }
 }
 
 function calcularDescontos(salarioBruto, valeTransporteBeneficio) {
     const inss = calcularINSS(salarioBruto);
     const irrf = calcularIRRF(salarioBruto, inss);
-    
     const valeTransporte = valeTransporteBeneficio ? salarioBruto * 0.06 : 0;
     const valeAlimentacao = salarioBruto * 0.1;
-
     const totalDescontos = inss + irrf + valeTransporte + valeAlimentacao;
-
     return {
         inss,
         irrf,
@@ -53,47 +48,70 @@ function calcularDescontos(salarioBruto, valeTransporteBeneficio) {
 }
 
 function calcularAdicionais(salarioBase, adicionais) {
-    let totalAdicionais = 0;
+    let detalhesAdicionais = {
+        noturno: adicionais.noturno ? salarioBase * 0.20 : 0,
+        periculosidade: adicionais.periculosidade ? salarioBase * 0.30 : 0
+    };
 
-    // Adicional Noturno
-    if (adicionais.noturno) totalAdicionais += salarioBase * 0.20;
+    // Insalubridade
+    if (adicionais.insalubridade && adicionais.insalubridadeGrau) {
+        const percentuais = {
+            minimo: 0.10, // 10%
+            medio: 0.20,  // 20%
+            maximo: 0.40  // 40%
+        };
+        const grau = adicionais.insalubridadeGrau;
+        const valorInsalubridade = salarioBase * percentuais[grau];
 
-    // Adicional de Insalubridade
-    if (adicionais.insalubridade) {
-        // Adicione lógica para calcular com base no grau de insalubridade
-        // Exemplo: adicionais.insalubridadeGrau pode ser 'minimo', 'medio' ou 'maximo'
+        detalhesAdicionais.insalubridade = {
+            valor: valorInsalubridade,
+            grau: grau
+        };
+    } else {
+        detalhesAdicionais.insalubridade = {
+            valor: 0,
+            grau: 'não especificado'
+        };
     }
 
-    // Adicional de Periculosidade
-    if (adicionais.periculosidade) totalAdicionais += salarioBase * 0.30;
+    // Cálculo do total de adicionais incluindo insalubridade
+    let totalAdicionais = detalhesAdicionais.noturno + detalhesAdicionais.periculosidade +
+        (detalhesAdicionais.insalubridade ? detalhesAdicionais.insalubridade.valor : 0);
 
-    return totalAdicionais;
+    return {
+        totalAdicionais,
+        detalhesAdicionais
+    };
 }
 
+
+
+
+function calcularHorasExtras(quantidade, valorHoraExtra) {
+    return quantidade * valorHoraExtra;
+}
 
 async function gerarHolerite(idFuncionario, mes, ano) {
     try {
         const funcionario = await buscarFuncionarioPorId(idFuncionario);
         const empresas = await buscarEmpresas();
-        const empresa = empresas[0];
+        const empresa = empresas.length > 0 ? empresas[0] : null;
 
-        if (!empresa) {
-            return { erro: 'Empresa não encontrada' };
-        }
-
-        if (!funcionario) {
-            return { erro: 'Funcionário não encontrado' };
+        if (!empresa || !funcionario) {
+            return { erro: 'Empresa ou Funcionário não encontrado' };
         }
 
         const salarioBase = funcionario.salarioBase;
+        // A função calcularAdicionais agora retorna um objeto com totalAdicionais e detalhes
+        const { totalAdicionais, detalhesAdicionais } = calcularAdicionais(salarioBase, funcionario.adicionais);
+        const horasExtras = calcularHorasExtras(funcionario.horasExtras.quantidade, funcionario.horasExtras.valorHoraExtra);
         const descontos = calcularDescontos(salarioBase, funcionario.valeTransporteBeneficio);
-        const fgts = calcularFGTS(salarioBase); // FGTS não é descontado do funcionário, é um encargo do empregador
-        const adicionais = calcularAdicionais(salarioBase, funcionario.adicionais);
-        const salarioBruto = salarioBase + adicionais; // Adicionar a lógica para adicionais se houver
+        const fgts = calcularFGTS(salarioBase + totalAdicionais + horasExtras);
+        const salarioBruto = salarioBase + totalAdicionais + horasExtras;
         const salarioLiquido = salarioBruto - descontos.totalDescontos;
 
-        const holerite = {
-            DadosEmpregador: { // Adicionando os detalhes da empresa
+        return {
+            DadosEmpregador: {
                 nomeFantasia: empresa.nomeFantasia,
                 cnpj: empresa.cnpj,
                 endereco: empresa.endereco,
@@ -104,18 +122,23 @@ async function gerarHolerite(idFuncionario, mes, ano) {
                 cargo: funcionario.cargo,
                 periodo: `${mes}/${ano}`,
                 salarioBase,
+                adicionaisDetalhados: {
+                    totalAdicionais: totalAdicionais,
+                    noturno: detalhesAdicionais.noturno,
+                    insalubridade: detalhesAdicionais.insalubridade.valor,
+                    insalubridadeGrau: detalhesAdicionais.insalubridade.grau,
+                    periculosidade: detalhesAdicionais.periculosidade
+                },
+                horasExtras,
                 salarioBruto,
+                descontosDetalhados: descontos,
+                fgts,
                 salarioLiquido,
-                horasExtras: 0, // Adicionar lógica para calcular horas extras
-                descontos: { ...descontos, fgts },
-                adicionais: {adicionais},
-                totalProventos: salarioBruto, // Adicionar lógica se houver outros proventos
+                totalProventos: salarioBruto,
                 totalDescontos: descontos.totalDescontos
-
-            },
+            }
         };
 
-        return holerite;
     } catch (erro) {
         console.error(erro);
         return { erro: erro.message };
