@@ -2,28 +2,30 @@ const jwt = require('jsonwebtoken');
 const usuarioModel = require('../models/usuarioModel');
 
 const authController = {
-    // Login de usuário
     login: async function (req, res) {
         const { email, password } = req.body;
 
-        // Verifica se é um login de administrador
-        if (email === "admin@gmail.com" && password === "admin") {
-            // Criação do token JWT para o administrador
-            const token = jwt.sign({ email, type: 'empresa' }, 'chave_secreta', { expiresIn: '1h' });
-            res.status(200).send({ message: 'Login de admin realizado com sucesso', token });
-            return;
+        if (!email || !password) {
+            return res.status(400).json({ message: 'E-mail e senha são obrigatórios.' });
         }
 
-        // Verificação padrão de login para outros usuários
-        const usuario = await usuarioModel.verificarLogin(email, password);
-        if (usuario) {
-            // Criação do token JWT para usuários normais
-            const token = jwt.sign({ id: usuario._id }, 'chave_secreta', { expiresIn: '1h' });
-            res.status(200).send({ message: 'Login realizado com sucesso', token });
-        } else {
-            res.status(401).send({ message: 'E-mail ou senha inválidos' });
+        if (email === "admin@gmail.com" && password === "admin") {
+            const token = jwt.sign({ email, type: 'empresa' }, 'chave_secreta', { expiresIn: '1h' });
+            return res.status(200).json({ message: 'Login de admin realizado com sucesso', token });
+        }
+
+        try {
+            const resultado = await usuarioModel.verificarLogin(email, password);
+            if (resultado.usuario) {
+                const token = jwt.sign({ id: resultado.usuario._id }, 'chave_secreta', { expiresIn: '1h' });
+                return res.status(200).json({ message: 'Login realizado com sucesso', token });
+            } else {
+                return res.status(resultado.status || 401).json({ message: resultado.error || 'E-mail ou senha inválidos' });
+            }
+        } catch (error) {
+            return res.status(500).json({ message: 'Erro ao processar login', error });
         }
     }
 };
 
-module.exports = {verificarLogin};
+module.exports = authController;

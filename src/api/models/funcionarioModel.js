@@ -74,14 +74,4 @@ async function editarFuncionario(idFuncionario, dadosAtualizados) {
     }
 }
 
-async function verificarLogin(email, senha) {
-    try {
-        // Substitua pela lógica correta de encontrar o funcionário com o e-mail e verificar a senha
-        const resultado = await funcionariosDB.find({ selector: { email: email, senha: senha } });
-        return resultado.docs.length > 0 ? resultado.docs[0] : null;
-    } catch (erro) {
-        throw new Error('Erro ao verificar login: ' + erro.message);
-    }
-}
-
-module.exports = { adicionarFuncionario, buscarFuncionarios, buscarFuncionarioPorId, editarFuncionario, verificarLogin };
+module.exports = { adicionarFuncionario, buscarFuncionarios, buscarFuncionarioPorId, editarFuncionario};
