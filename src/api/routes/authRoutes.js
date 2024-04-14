@@ -1,17 +1,25 @@
 const express = require('express');
 const router = express.Router();
-const { verificarLogin } = require('../models/funcionarioModel'); // Certifique-se de que o nome da função está correto aqui
+const { verificarLogin } = require('../models/usuarioModel');
 
 router.post('/login', async (req, res) => {
+    if (Object.keys(req.body).length === 0) {
+        return res.status(400).json({ mensagem: "O corpo da requisição não pode estar vazio." });
+    }
+
+    const { email, senha } = req.body;
+    if (!email || !senha) {
+        return res.status(400).json({ mensagem: "E-mail e senha são obrigatórios." });
+    }
+
     try {
-        const funcionario = await verificarLogin(req.body.email, req.body.senha);
-        if (funcionario) {
-            res.status(200).json({ mensagem: "Login bem-sucedido", funcionario });
+        const resultado = await verificarLogin(email, senha);
+        if (resultado.usuario) {
+            res.status(200).json({ mensagem: "Login bem-sucedido", usuario: resultado.usuario });
         } else {
-            res.status(401).json({ mensagem: "E-mail ou senha inválidos" });
+            res.status(resultado.status || 401).json({ mensagem: resultado.error });
         }
     } catch (erro) {
-        // Ajuste o código de status de erro se for um erro de servidor e não apenas uma falha de autenticação
         const statusCode = erro.message.includes('Erro ao verificar login') ? 500 : 401;
         res.status(statusCode).json({ mensagem: erro.message });
     }

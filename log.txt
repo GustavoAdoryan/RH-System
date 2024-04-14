@@ -702,3 +702,102 @@
 [Sat, 13 Apr 2024 18:45:39 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/2024-04-13T18%3A44%3A34.583Z? 200
 [Sat, 13 Apr 2024 18:45:39 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /empresas/_all_docs?include_docs=true 200
 [Sat, 13 Apr 2024 19:12:34 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/_all_docs?include_docs=true 200
+[Sat, 13 Apr 2024 22:34:29 GMT] [info] [<0.000.0>] pouchdb-server has started on http://127.0.0.1:5984/
+[Sat, 13 Apr 2024 22:34:29 GMT] [info] [<0.000.0>] navigate to http://127.0.0.1:5984/_utils for the Fauxton UI.
+[Sat, 13 Apr 2024 22:35:13 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/ 200
+[Sat, 13 Apr 2024 22:35:13 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/_all_docs?include_docs=true 200
+[Sat, 13 Apr 2024 22:35:18 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/_all_docs?include_docs=true 200
+[Sat, 13 Apr 2024 22:37:05 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/2024-04-13T18%3A44%3A34.583Z? 200
+[Sat, 13 Apr 2024 22:37:05 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /empresas/ 200
+[Sat, 13 Apr 2024 22:37:05 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /empresas/_all_docs?include_docs=true 200
+[Sat, 13 Apr 2024 22:37:39 GMT] [info] [<0.000.0>] 127.0.0.1 - - POST /funcionarios/_find 200
+[Sun, 14 Apr 2024 20:05:36 GMT] [info] [<0.000.0>] pouchdb-server has started on http://127.0.0.1:5984/
+[Sun, 14 Apr 2024 20:05:36 GMT] [info] [<0.000.0>] navigate to http://127.0.0.1:5984/_utils for the Fauxton UI.
+[Sun, 14 Apr 2024 20:06:12 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /_utils/ 200
+[Sun, 14 Apr 2024 20:06:12 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /_utils/dashboard.assets/css/styles-a9623008fc27e79da2388441deeacfab.css 200
+[Sun, 14 Apr 2024 20:06:12 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /_utils/dashboard.assets/js/bundle-34997e32896293a1fa5d71f79eb1b4f7.js 200
+[Sun, 14 Apr 2024 20:06:12 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /_session 200
+[Sun, 14 Apr 2024 20:06:12 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /_session 304
+[Sun, 14 Apr 2024 20:06:12 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET / 200
+[Sun, 14 Apr 2024 20:06:12 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /_utils/dashboard.assets/img/pouchdb-site.png 200
+[Sun, 14 Apr 2024 20:06:12 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /_utils/dashboard.assets/fonts/fauxtonicon5.woff 200
+[Sun, 14 Apr 2024 20:06:12 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /_all_dbs?_=1713125172168 200
+[Sun, 14 Apr 2024 20:06:12 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /_all_dbs?startkey=%22%22&endkey=%22%E9%A6%99%22&limit=30&_=1713125172169 200
+[Sun, 14 Apr 2024 20:06:12 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /_replicator?_=1713125172170 200
+[Sun, 14 Apr 2024 20:06:12 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /_users?_=1713125172171 200
+[Sun, 14 Apr 2024 20:06:12 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /_utils/dashboard.assets/fonts/fontawesome-webfont.woff 200
+[Sun, 14 Apr 2024 20:06:12 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios?_=1713125172173 200
+[Sun, 14 Apr 2024 20:06:12 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /empresas?_=1713125172172 200
+[Sun, 14 Apr 2024 20:06:15 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /_all_dbs?_=1713125172174 200
+[Sun, 14 Apr 2024 20:06:15 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /_replicator?_=1713125172175 200
+[Sun, 14 Apr 2024 20:06:15 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /_users?_=1713125172176 200
+[Sun, 14 Apr 2024 20:06:15 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /empresas?_=1713125172177 200
+[Sun, 14 Apr 2024 20:06:15 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios?_=1713125172178 200
+[Sun, 14 Apr 2024 20:06:17 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /empresas/_all_docs?limit=21 200
+[Sun, 14 Apr 2024 20:06:17 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /empresas/_all_docs?startkey=%22_design%2F%22&endkey=%22_design0%22&include_docs=true&limit=501 200
+[Sun, 14 Apr 2024 20:06:17 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /empresas/_all_docs?startkey=%22%22&endkey=%22%E9%A6%99%22&limit=30&_=1713125172179 200
+[Sun, 14 Apr 2024 20:06:19 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /_all_dbs?_=1713125172180 200
+[Sun, 14 Apr 2024 20:06:19 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /_replicator?_=1713125172181 200
+[Sun, 14 Apr 2024 20:06:19 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /_users?_=1713125172182 200
+[Sun, 14 Apr 2024 20:06:19 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /empresas?_=1713125172183 200
+[Sun, 14 Apr 2024 20:06:19 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios?_=1713125172184 200
+[Sun, 14 Apr 2024 20:06:20 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /_users/_all_docs?startkey=%22_design%2F%22&endkey=%22_design0%22&include_docs=true&limit=501 200
+[Sun, 14 Apr 2024 20:06:20 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /_users/_all_docs?limit=21&include_docs=true 200
+[Sun, 14 Apr 2024 20:06:20 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /_users/_all_docs?startkey=%22%22&endkey=%22%E9%A6%99%22&limit=30&_=1713125172185 200
+[Sun, 14 Apr 2024 20:06:24 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /_all_dbs?_=1713125172186 200
+[Sun, 14 Apr 2024 20:06:24 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /_replicator?_=1713125172187 200
+[Sun, 14 Apr 2024 20:06:24 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /_users?_=1713125172188 200
+[Sun, 14 Apr 2024 20:06:24 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /empresas?_=1713125172189 200
+[Sun, 14 Apr 2024 20:06:24 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios?_=1713125172190 200
+[Sun, 14 Apr 2024 20:06:24 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/_all_docs?startkey=%22_design%2F%22&endkey=%22_design0%22&include_docs=true&limit=501 200
+[Sun, 14 Apr 2024 20:06:24 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/_all_docs?startkey=%22%22&endkey=%22%E9%A6%99%22&limit=30&_=1713125172191 200
+[Sun, 14 Apr 2024 20:06:24 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/_all_docs?limit=21 200
+[Sun, 14 Apr 2024 20:06:29 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /_all_dbs?_=1713125172192 200
+[Sun, 14 Apr 2024 20:06:29 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /_users?_=1713125172194 200
+[Sun, 14 Apr 2024 20:06:29 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /_replicator?_=1713125172193 200
+[Sun, 14 Apr 2024 20:06:29 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /empresas?_=1713125172195 200
+[Sun, 14 Apr 2024 20:06:29 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios?_=1713125172196 200
+[Sun, 14 Apr 2024 20:06:36 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/ 200
+[Sun, 14 Apr 2024 20:06:36 GMT] [info] [<0.000.0>] 127.0.0.1 - - POST /funcionarios/_find 200
+[Sun, 14 Apr 2024 20:07:28 GMT] [info] [<0.000.0>] 127.0.0.1 - - POST /funcionarios/_find 200
+[Sun, 14 Apr 2024 20:07:29 GMT] [info] [<0.000.0>] 127.0.0.1 - - POST /funcionarios/_find 200
+[Sun, 14 Apr 2024 20:09:10 GMT] [info] [<0.000.0>] 127.0.0.1 - - POST /funcionarios/_find 200
+[Sun, 14 Apr 2024 20:20:30 GMT] [info] [<0.000.0>] pouchdb-server has started on http://127.0.0.1:5984/
+[Sun, 14 Apr 2024 20:20:30 GMT] [info] [<0.000.0>] navigate to http://127.0.0.1:5984/_utils for the Fauxton UI.
+[Sun, 14 Apr 2024 20:20:42 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/ 200
+[Sun, 14 Apr 2024 20:20:43 GMT] [info] [<0.000.0>] 127.0.0.1 - - POST /funcionarios/_find 200
+[Sun, 14 Apr 2024 20:20:49 GMT] [info] [<0.000.0>] 127.0.0.1 - - POST /funcionarios/_find 200
+[Sun, 14 Apr 2024 20:23:26 GMT] [info] [<0.000.0>] pouchdb-server has started on http://127.0.0.1:5984/
+[Sun, 14 Apr 2024 20:23:26 GMT] [info] [<0.000.0>] navigate to http://127.0.0.1:5984/_utils for the Fauxton UI.
+[Sun, 14 Apr 2024 20:23:38 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/ 200
+[Sun, 14 Apr 2024 20:23:38 GMT] [info] [<0.000.0>] 127.0.0.1 - - POST /funcionarios/_find 200
+[Sun, 14 Apr 2024 20:23:50 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/_all_docs?include_docs=true 200
+[Sun, 14 Apr 2024 20:23:59 GMT] [info] [<0.000.0>] 127.0.0.1 - - POST /funcionarios/_find 200
+[Sun, 14 Apr 2024 20:29:10 GMT] [info] [<0.000.0>] 127.0.0.1 - - POST /funcionarios/_find 200
+[Sun, 14 Apr 2024 20:29:26 GMT] [info] [<0.000.0>] pouchdb-server has started on http://127.0.0.1:5984/
+[Sun, 14 Apr 2024 20:29:26 GMT] [info] [<0.000.0>] navigate to http://127.0.0.1:5984/_utils for the Fauxton UI.
+[Sun, 14 Apr 2024 20:29:32 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/ 200
+[Sun, 14 Apr 2024 20:29:32 GMT] [info] [<0.000.0>] 127.0.0.1 - - POST /funcionarios/_find 200
+[Sun, 14 Apr 2024 20:49:50 GMT] [info] [<0.000.0>] pouchdb-server has started on http://127.0.0.1:5984/
+[Sun, 14 Apr 2024 20:49:50 GMT] [info] [<0.000.0>] navigate to http://127.0.0.1:5984/_utils for the Fauxton UI.
+[Sun, 14 Apr 2024 21:05:12 GMT] [info] [<0.000.0>] pouchdb-server has started on http://127.0.0.1:5984/
+[Sun, 14 Apr 2024 21:05:12 GMT] [info] [<0.000.0>] navigate to http://127.0.0.1:5984/_utils for the Fauxton UI.
+[Sun, 14 Apr 2024 21:48:47 GMT] [info] [<0.000.0>] pouchdb-server has started on http://127.0.0.1:5984/
+[Sun, 14 Apr 2024 21:48:47 GMT] [info] [<0.000.0>] navigate to http://127.0.0.1:5984/_utils for the Fauxton UI.
+[Sun, 14 Apr 2024 21:49:10 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/ 200
+[Sun, 14 Apr 2024 21:49:10 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/_all_docs?include_docs=true 200
+[Sun, 14 Apr 2024 21:55:40 GMT] [info] [<0.000.0>] pouchdb-server has started on http://127.0.0.1:5984/
+[Sun, 14 Apr 2024 21:55:40 GMT] [info] [<0.000.0>] navigate to http://127.0.0.1:5984/_utils for the Fauxton UI.
+[Sun, 14 Apr 2024 21:58:21 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/ 200
+[Sun, 14 Apr 2024 21:58:21 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/_all_docs?include_docs=true 200
+[Sun, 14 Apr 2024 22:01:50 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/ 200
+[Sun, 14 Apr 2024 22:01:50 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/_all_docs?include_docs=true 200
+[Sun, 14 Apr 2024 22:02:29 GMT] [info] [<0.000.0>] pouchdb-server has started on http://127.0.0.1:5984/
+[Sun, 14 Apr 2024 22:02:29 GMT] [info] [<0.000.0>] navigate to http://127.0.0.1:5984/_utils for the Fauxton UI.
+[Sun, 14 Apr 2024 22:02:44 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/ 200
+[Sun, 14 Apr 2024 22:02:44 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/_all_docs?include_docs=true 200
+[Sun, 14 Apr 2024 22:03:50 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/ 200
+[Sun, 14 Apr 2024 22:03:50 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/_all_docs?include_docs=true 200
+[Sun, 14 Apr 2024 22:10:05 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/ 200
+[Sun, 14 Apr 2024 22:10:05 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/_all_docs?include_docs=true 200
+[Sun, 14 Apr 2024 22:10:53 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/_all_docs?include_docs=true 200
