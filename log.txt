@@ -801,3 +801,45 @@
 [Sun, 14 Apr 2024 22:10:05 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/ 200
 [Sun, 14 Apr 2024 22:10:05 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/_all_docs?include_docs=true 200
 [Sun, 14 Apr 2024 22:10:53 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/_all_docs?include_docs=true 200
+[Sun, 14 Apr 2024 22:20:28 GMT] [info] [<0.000.0>] pouchdb-server has started on http://127.0.0.1:5984/
+[Sun, 14 Apr 2024 22:20:28 GMT] [info] [<0.000.0>] navigate to http://127.0.0.1:5984/_utils for the Fauxton UI.
+[Sun, 14 Apr 2024 22:20:34 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/ 200
+[Sun, 14 Apr 2024 22:20:34 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/_all_docs?include_docs=true 200
+[Sun, 14 Apr 2024 22:20:44 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/_all_docs?include_docs=true 200
+[Sun, 14 Apr 2024 22:20:51 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/_all_docs?include_docs=true 200
+[Sun, 14 Apr 2024 22:20:58 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/_all_docs?include_docs=true 200
+[Tue, 16 Apr 2024 02:58:02 GMT] [info] [<0.000.0>] pouchdb-server has started on http://127.0.0.1:5984/
+[Tue, 16 Apr 2024 02:58:02 GMT] [info] [<0.000.0>] navigate to http://127.0.0.1:5984/_utils for the Fauxton UI.
+[Tue, 16 Apr 2024 02:58:32 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/ 200
+[Tue, 16 Apr 2024 02:58:32 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/_all_docs?include_docs=true 200
+[Tue, 16 Apr 2024 02:58:54 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /empresas/ 200
+[Tue, 16 Apr 2024 02:58:54 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /empresas/_all_docs?include_docs=true 200
+[Tue, 16 Apr 2024 02:59:04 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/2024-04-12T00%3A16%3A22.080Z? 404
+[Tue, 16 Apr 2024 02:59:10 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/_all_docs?include_docs=true 200
+[Tue, 16 Apr 2024 02:59:22 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/2024-04-13T18%3A44%3A34.583Z? 200
+[Tue, 16 Apr 2024 02:59:22 GMT] [info] [<0.000.0>] 127.0.0.1 - - PUT /funcionarios/2024-04-13T18%3A44%3A34.583Z 201
+[Tue, 16 Apr 2024 02:59:26 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/_all_docs?include_docs=true 200
+[Tue, 16 Apr 2024 03:00:14 GMT] [info] [<0.000.0>] 127.0.0.1 - - PUT /funcionarios/2024-04-16T03%3A00%3A14.716Z 201
+[Tue, 16 Apr 2024 03:00:19 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/_all_docs?include_docs=true 200
+[Tue, 16 Apr 2024 03:00:52 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/2024-04-16T03%3A00%3A14.716Z? 200
+[Tue, 16 Apr 2024 03:00:52 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /empresas/_all_docs?include_docs=true 200
+[Tue, 16 Apr 2024 03:09:27 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /empresas/ 200
+[Tue, 16 Apr 2024 03:09:27 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /empresas/_all_docs?include_docs=true 200
+[Tue, 16 Apr 2024 03:26:50 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/ 200
+[Tue, 16 Apr 2024 03:26:50 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/_all_docs?include_docs=true 200
+[Tue, 16 Apr 2024 03:27:14 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/2024-04-16T03%3A00%3A14.716Z? 200
+[Tue, 16 Apr 2024 03:27:14 GMT] [info] [<0.000.0>] 127.0.0.1 - - DELETE /funcionarios/2024-04-16T03%3A00%3A14.716Z?rev=1-5363578fe13c78c7708b211418898a62 200
+[Tue, 16 Apr 2024 03:27:18 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/_all_docs?include_docs=true 200
+[Tue, 16 Apr 2024 03:27:48 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /empresas/ 200
+[Tue, 16 Apr 2024 03:27:48 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /empresas/_all_docs?include_docs=true 200
+[Tue, 16 Apr 2024 03:28:45 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /empresas/2024-04-13T17%3A32%3A36.837Z? 200
+[Tue, 16 Apr 2024 03:28:45 GMT] [info] [<0.000.0>] 127.0.0.1 - - PUT /empresas/2024-04-13T17%3A32%3A36.837Z 201
+[Tue, 16 Apr 2024 03:28:55 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /empresas/_all_docs?include_docs=true 200
+[Tue, 16 Apr 2024 03:29:05 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/2024-04-16T03%3A00%3A14.716Z? 404
+[Tue, 16 Apr 2024 03:29:11 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/_all_docs?include_docs=true 200
+[Tue, 16 Apr 2024 03:29:24 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/2024-04-13T18%3A44%3A34.583Z? 200
+[Tue, 16 Apr 2024 03:29:24 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /empresas/_all_docs?include_docs=true 200
+[Tue, 16 Apr 2024 03:29:37 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/_all_docs?include_docs=true 200
+[Tue, 16 Apr 2024 03:29:37 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /empresas/_all_docs?include_docs=true 200
+[Tue, 16 Apr 2024 03:40:10 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /funcionarios/_all_docs?include_docs=true 200
+[Tue, 16 Apr 2024 03:40:10 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /empresas/_all_docs?include_docs=true 200

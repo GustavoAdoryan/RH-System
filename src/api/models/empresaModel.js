@@ -7,7 +7,9 @@ async function adicionarEmpresa(dadosEmpresa) {
         cnpj: dadosEmpresa.cnpj,
         nomeFantasia: dadosEmpresa.nomeFantasia,
         endereco: dadosEmpresa.endereco,
-        telefone: dadosEmpresa.telefone
+        telefone: dadosEmpresa.telefone,
+        email: dadosEmpresa.email,
+        senha: dadosEmpresa.senha
     };
 
     try {
@@ -27,4 +29,37 @@ async function buscarEmpresas() {
     }
 }
 
-module.exports = { adicionarEmpresa, buscarEmpresas };
+async function editarEmpresa(idEmpresa, dadosAtualizados) {
+    try {
+        const empresa = await empresasDB.get(idEmpresa);
+        // Atualiza as informações com os novos dados
+        Object.keys(dadosAtualizados).forEach(chave => {
+            empresa[chave] = dadosAtualizados[chave];
+        });
+        const resultado = await empresasDB.put(empresa);
+        return resultado;
+    } catch (erro) {
+        throw new Error('Erro ao editar empresa: ' + erro.message);
+    }
+}
+
+async function excluirEmpresa(idEmpresa) {
+    try {
+        const empresa = await empresasDB.get(idEmpresa);
+        const resultado = await empresasDB.remove(empresa);
+        return resultado;
+    } catch (erro) {
+        throw new Error('Erro ao excluir empresa: ' + erro.message);
+    }
+}
+
+async function buscarEmpresaPorId(idEmpresa) {
+    try {
+        const empresa = await empresasDB.get(idEmpresa);
+        return empresa;
+    } catch (erro) {
+        throw new Error('Erro ao buscar empresa por ID: ' + erro.message);
+    }
+}
+
+module.exports = { adicionarEmpresa, buscarEmpresas, editarEmpresa, excluirEmpresa, buscarEmpresaPorId };

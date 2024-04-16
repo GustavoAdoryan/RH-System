@@ -1,4 +1,4 @@
-const { adicionarFuncionario, buscarFuncionarios, buscarFuncionarioPorId, editarFuncionario } = require('../models/funcionarioModel');
+const { adicionarFuncionario, buscarFuncionarios, buscarFuncionarioPorId, editarFuncionario, excluirFuncionario } = require('../models/funcionarioModel');
 const { gerarHolerite } = require('../services/holeriteService');
 
 // Adicionando um novo funcionário
@@ -50,6 +50,18 @@ async function editarFuncionarioController(req, res) {
     }
 }
 
+// Controlador para deletar um funcionário
+async function deletarFuncionario(req, res) {
+    const id = req.params.id; // ID do funcionário a ser deletado
+
+    try {
+        const resultado = await excluirFuncionario(id);
+        res.status(200).send({ mensagem: "Funcionário deletado com sucesso" });
+    } catch (erro) {
+        res.status(500).send({ erro: erro.message });
+    }
+}
+
 // Controlador para obter holerite
 async function obterHolerite(req, res) {
     try {
@@ -61,4 +73,4 @@ async function obterHolerite(req, res) {
     }
 }
 
-module.exports = { criarFuncionario, obterFuncionarios, obterFuncionarioPorId, editarFuncionarioController, obterHolerite };
+module.exports = { criarFuncionario, obterFuncionarios, obterFuncionarioPorId, editarFuncionarioController, deletarFuncionario, obterHolerite };

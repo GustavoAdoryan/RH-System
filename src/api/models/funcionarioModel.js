@@ -74,4 +74,17 @@ async function editarFuncionario(idFuncionario, dadosAtualizados) {
     }
 }
 
-module.exports = { adicionarFuncionario, buscarFuncionarios, buscarFuncionarioPorId, editarFuncionario};
+async function excluirFuncionario(idFuncionario) {
+    try {
+        // Busca o funcionário pelo ID
+        const funcionario = await funcionariosDB.get(idFuncionario);
+        // Remove o funcionário do banco de dados
+        const resultado = await funcionariosDB.remove(funcionario);
+        console.log('Funcionário excluído com sucesso');
+        return resultado;
+    } catch (erro) {
+        throw new Error('Erro ao excluir funcionário: ' + erro.message);
+    }
+}
+
+module.exports = { adicionarFuncionario, buscarFuncionarios, buscarFuncionarioPorId, editarFuncionario, excluirFuncionario };

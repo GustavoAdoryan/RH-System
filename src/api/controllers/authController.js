@@ -9,11 +9,6 @@ const authController = {
             return res.status(400).json({ message: 'E-mail e senha são obrigatórios.' });
         }
 
-        if (email === "admin@gmail.com" && password === "admin") {
-            const token = jwt.sign({ email, type: 'empresa' }, 'chave_secreta', { expiresIn: '1h' });
-            return res.status(200).json({ message: 'Login de admin realizado com sucesso', token });
-        }
-
         try {
             const resultado = await usuarioModel.verificarLogin(email, password);
             if (resultado.usuario) {
